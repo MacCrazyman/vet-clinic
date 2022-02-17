@@ -1,6 +1,6 @@
 /* Populate database with sample data. */
 
-INSERT INTO animals (name, date_of_birth, weight_kg, neutered) VALUES ('Charmander', 'male','feb-08-2020', 11, false);
+INSERT INTO animals (name, date_of_birth, weight_kg, neutered, escape_attemps) VALUES ('Charmander','feb-08-2020', 11, false, 0);
 INSERT INTO animals (name, date_of_birth, weight_kg, neutered, escape_attemps) VALUES ('Plantmon', 'nov-15-2022', 5.7, true, 2);
 INSERT INTO animals (name, date_of_birth, weight_kg, neutered, escape_attemps) VALUES ('Squirtle', 'apr-02-1993', 12.13, false, 3);
 INSERT INTO animals (name, date_of_birth, weight_kg, neutered, escape_attemps) VALUES ('Angemon', 'jun-12-2005', 45, true, 1);
