@@ -8,3 +8,6 @@ CREATE TABLE animals (
     neutered boolean,
     escape_attemps int default 0
 );
+
+ALTER TABLE animals ADD species varchar(100);
+
