@@ -1,68 +1,57 @@
 /*Queries that provide answers to the questions from all projects.*/
 
-begin;
-update animals set species = 'unspecified';
-table animals;
-rollback;
-table animals;
+-- What animals belong to Melody Pond?
 
-begin;
-update animals
-set species = 'digimon'
-where name like '%mon';
-table animals;
-update animals
-set species = 'pokemon'
-where species is null;
-commit;
-table animals;
-
-begin;
-delete from animals;
-table animals;
-rollback;
-table animals;
-
-begin;
-delete from animals
-where date_of_birth > 'jan-01-2022';
-savepoint deleteold;
-update animals set weight_kg = weight_kg*(-1);
-table animals;
-rollback to deleteold;
-table animals;
-update animals set weight_kg = weight_kg*(-1)
-where weight_kg < 0;
-table animals;
-commit;
-table animals;
-
--- How many animals are there?
-select count(*)
-from animals;
-
--- How many animals have never tried to escape?
-select count(*)
+select animals.name
 from animals
-where escape_attemps = 0;
+join owners
+on animals.owner_id = owners.id
+where owners.full_name = 'Melody Pond';
 
--- What is the average weight_kg of animals?
-select avg(weight_kg)
-from animals;
+-- List of all animals that are pokemon (their type is Pokemon).
 
--- Who escapes the most, neutered or not neutered animals?
-select neutered, sum(escape_attemps)
+select animals.name
 from animals
-group by neutered
-order by sum desc;
+join species
+on animals.species_id = species.id
+where species.name = 'Pokemon';
 
--- What is the minimum and maximum weight_kg of each type of animal?
-select species, min(weight_kg), max(weight_kg)
-from animals
-group by species;
+-- List all owners and their animals, remember to include those that don't own any animal.
 
--- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
-select species, avg(escape_attemps)
-from animals
-where (date_of_birth between 'jan-01-1990' and 'jan-01-2000')
-group by species;
+select owners.full_name, animals.name
+from owners
+left join animals
+on owners.id = animals.owner_id;
+
+-- How many animals are there per species?
+
+select species.name, count(species.name)
+from species
+join animals
+on species.id = animals.species_id
+group by species.name;
+
+-- List all Digimon owned by Jennifer Orwell.
+
+select owners.full_name, animals.name
+from owners
+join animals
+on owners.id = animals.owner_id
+where owners.full_name = 'Jennifer Orwell';
+
+-- List all animals owned by Dean Winchester that haven't tried to escape.
+
+select owners.full_name, animals.name
+from owners
+join animals
+on owners.id = animals.owner_id
+where owners.full_name = 'Dean Winchester' and animals.escape_attemps = 0;
+
+-- Who owns the most animals?
+
+select owners.full_name, count(owners.full_name)
+from owners
+join animals
+on owners.id = animals.owner_id
+group by owners.full_name
+order by count desc;

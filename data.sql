@@ -10,3 +10,21 @@ INSERT INTO animals (name, date_of_birth, weight_kg, neutered, escape_attemps) V
 INSERT INTO animals (name, date_of_birth, weight_kg, neutered, escape_attemps) VALUES ('Gabumon', 'nov-15-2018', 8, true, 2);
 INSERT INTO animals (name, date_of_birth, weight_kg, neutered, escape_attemps) VALUES ('Pikachu', 'jan-07-2021', 15.04, false, 1);
 INSERT INTO animals (name, date_of_birth, weight_kg, neutered, escape_attemps) VALUES ('Devimon', 'may-12-2017', 11, true, 5);
+
+insert into owners (full_name, age) values ('Sam Smith', 34),('Jennifer Orwell', 19),('Bob', 45),('Melody Pond', 77),('Dean Winchester', 14),('Jodie Whittaker', 38);
+
+insert into species values ('Pokemon'),('Digimon');
+
+update animals
+set species_id = 2
+where name like '%mon';
+
+update animals
+set species_id = 1
+where name not like '%mon';
+
+update animals set owner_id = 1 where name = 'Agumon';
+update animals set owner_id = 2 where name in ('Gabumon','Pikachu');
+update animals set owner_id = 3 where name in ('Devimon','Plantmon');
+update animals set owner_id = 4 where name in ('Charmander','Squirtle', 'Blossom');
+update animals set owner_id = 5 where name in ('Angemon','Boarmon');
