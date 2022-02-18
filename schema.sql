@@ -45,5 +45,5 @@ create table visits (
     animal_id int references animals(id),
     vet_id int references vets(id),
     date_of_visit date not null,
-    primary key (animal_id, vet_id)
+    primary key (animal_id, vet_id, date_of_visit)
 );
