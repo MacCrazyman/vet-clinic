@@ -2,6 +2,10 @@
 
 > this project is an introduction to databases where we learn to create tables, insert data on tables and make some basic queries to that information.
 
+## Schema
+
+![Vet Clinic Schema](./img/vet_clinic_w_index.png)
+
 
 ## Getting Started
 
