@@ -2,6 +2,10 @@
 
 > this project is an introduction to databases where we learn to create tables, insert data on tables and make some basic queries to that information.
 
+## Schema
+
+![Vet Clinic Schema](./img/vet_clinic_w_index.png)
+
 
 ## Getting Started
 
@@ -14,11 +18,20 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 ## Authors
 
-👤 **Author1**
+👤 **Anja**
+
+- GitHub: [@Anjacodes](https://github.com/Anjacodes)
+- Twitter: [@Anja_Schmidt7](https://twitter.com/Anja_Schmidt7)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/anja-schmidt7/)
+
+
+👤 **Leonardo**
 
 - GitHub: [@maccrazyman](https://github.com/MacCrazyman)
 - Twitter: [@maccrazyman](https://github.com/MacCrazyman)
 - LinkedIn: [LinkedIn](https://github.com/MacCrazyman)
+
+
 
 
 ## 🤝 Contributing

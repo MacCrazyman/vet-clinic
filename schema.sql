@@ -47,3 +47,9 @@ create table visits (
     date_of_visit date not null,
     primary key (animal_id, vet_id, date_of_visit)
 );
+
+/* Module 2 - Week1 */
+CREATE INDEX animal_id_asc ON visits(animal_id ASC);
+CREATE INDEX vet_id_asc ON visits(vet_id, animal_id, date_of_visit ASC);
+
+CREATE INDEX email_asc ON owners(email ASC);
